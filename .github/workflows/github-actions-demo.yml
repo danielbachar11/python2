@@ -6,7 +6,9 @@ on:
       - main
 
   pull_request:
-    branches:
+     types:
+      - closed
+     branches:
       - main
 jobs:
   Explore-GitHub-Actions:
@@ -30,4 +32,4 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: danielbachar/python:4
+          tags: danielbachar/python:5
