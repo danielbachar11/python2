@@ -14,7 +14,7 @@ jobs:
 
       - name: build image
         
-        run: docker build -t docker push danielbachar/python:8 .
+        run: docker build -t danielbachar/python:8 .
 
       - name: docker login
 
