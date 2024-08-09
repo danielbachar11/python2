@@ -3,22 +3,25 @@ name: Docker Login
 on: push
 
 jobs:
-  enter-to-docker-login:
+  docker-login:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repository
         uses: actions/checkout@v3
 
-      - name: build image
-      
+build_image:
+  build image:
+   runs-on: ubuntu-latest
+   steps:
+     - name: build image
         
-        run: docker build -t docker push danielbachar/python:8 .
+       run: docker build -t docker push danielbachar/python:8 .
 
-      - name: docker login
+     - name: docker login
 
-        run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
-       
-      - name: docker push docker push danielbachar/python:8
+       run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: docker_push
+      - name: docker push danielbachar/python:8
 
       
         
