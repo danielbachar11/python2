@@ -14,10 +14,4 @@ jobs:
 
       - name: build image
         
-        run: docker build -t danielbachar/python:8 .
-
-      - name: docker login
-
-        run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: docker_push
-        run: docker push danielbachar/python:8
+        run: echo ${{GITHUB_SHA}}
