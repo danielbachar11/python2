@@ -15,4 +15,4 @@ jobs:
 
       - name: build image
         
-        run: docker build -t python:${{ github.sha}}
+        run: docker build -t python:${{ github.sha}} .
