@@ -14,4 +14,4 @@ jobs:
 
       - name: build image
         
-        run: echo " hello ${{ github.sha}} "
+        run: docker build -t python${{ github.sha}} .
