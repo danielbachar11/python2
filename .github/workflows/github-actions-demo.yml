@@ -8,10 +8,11 @@ jobs:
     steps:
       - name: Check out the repository
         uses: actions/checkout@v3
+       
 
 
    
 
       - name: build image
         
-        run: echo " hello ${{ github.sha}} "
+        run: docker build -t python:${{ github.sha}}
