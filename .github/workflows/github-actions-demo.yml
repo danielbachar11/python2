@@ -1,6 +1,6 @@
 name: Docker Login
 
-on: push
+on: pull_request
 
 jobs:
   docker-login:
@@ -15,4 +15,9 @@ jobs:
 
       - name: build image
         
-        run: docker build -t python:${{ github.sha}}
+        run: docker build -t danielbachar/python:${{ github.sha}} .
+      - name: docker login
+
+        run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: docker_push
+        run: docker push danielbachar/python:${{ github.sha}}
