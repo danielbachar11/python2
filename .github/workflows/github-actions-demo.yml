@@ -10,5 +10,5 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@v4
       - name: run kubectl
-        run: kubectl --kubeconfig ${{KUBECONFIG}} get pod
+        run: kubectl get pod
      
