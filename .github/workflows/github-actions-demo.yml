@@ -9,13 +9,10 @@ jobs:
     steps:
       - name: Check out the repository
         uses: actions/checkout@v4
-      - name: Set up kubectl
-        run: |
-            apt install curl
-            curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-            chmod +x ./kubectl
-            sudo mv ./kubectl /usr/local/bin/kubectl
-
+      - uses: azure/setup-kubectl@v4
+        with:
+         version: 'latest' # default is latest stable
+        id: install
       - name: Authenticate with Kubernetes cluster
         env:
           KUBECONFIG: ${{ secrets.KUBECONFIG }}  # Set KUBECONFIG as a GitHub Secret
