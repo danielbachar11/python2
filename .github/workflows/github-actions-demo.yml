@@ -10,14 +10,15 @@ jobs:
         uses: actions/checkout@v3
        
 
-      - name: deploy nginx
-        uses: TanmoySG/k-deploy-action@v0.2.2-alpha
-        with:
-          kubeconfig: KUBECONFIG
-          namespace: 'default'
-          manifest: deployment.yaml
-      - name: get pod
-        run: kubectl get pod  
+      - name: Create kubeconfig
+        run: |
+          mkdir ${HOME}/.kube
+          echo ${{ secrets.KUBE_CONFIG }} | base64 --decode > ${HOME}/.kube/config
+          cat ${HOME}/.kube/config
+      - name: Use context
+        run: kubectl config use-context octobay-api
+      - name: Deploy to K8s
+        run: kubectl get pod
          
 
      
