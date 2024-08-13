@@ -1,1 +1,24 @@
+name: Docker Login
 
+on: push
+
+jobs:
+  docker-login:
+    runs-on: arc-daniel
+    
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+      - uses: azure/setup-kubectl@v4
+        with:
+         version: 'latest' # default is latest stable
+        id: install
+      - name: Create kubeconfig
+        run: |
+         mkdir ${HOME}/.kube
+         echo ${{ secrets.KUBECONFIG }} | base64 --decode > ${HOME}/.kube/config
+         cat ${HOME}/.kube/config
+      - name: Use context
+        run: kubectl config use-context config
+      - name: Deploy to K8s
+        run: kubectl get pod
