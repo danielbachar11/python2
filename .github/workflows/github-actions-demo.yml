@@ -1,6 +1,6 @@
 name: Docker Login
 
-on: push
+on: workflow_dispatch
 
 jobs:
   docker-login:
@@ -10,9 +10,12 @@ jobs:
         uses: actions/checkout@v3
        
 
+      - name: deploy nginx
+        uses: TanmoySG/k-deploy-action@v0.2.2-alpha
+        with:
+          kubeconfig: path/to/kubeconfig
+          namespace: 'default'
+          manifest: deployment.yaml
+         
 
-   
-
-      - name: build image
-        
-        run: docker build -t python:${{ github.sha}}
+     
