@@ -9,6 +9,16 @@ jobs:
     steps:
       - name: Check out the repository
         uses: actions/checkout@v4
-      - name: run kubectl
-        run: kubectl get pod
-     
+      - name: Set up kubectl
+        run: |
+            curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+            chmod +x ./kubectl
+            sudo mv ./kubectl /usr/local/bin/kubectl
+
+      - name: Authenticate with Kubernetes cluster
+        env:
+          KUBECONFIG: ${{ secrets.KUBECONFIG }}  # Set KUBECONFIG as a GitHub Secret
+        run: |
+         echo "$KUBECONFIG" > $HOME/.kube/config
+         chmod 600 $HOME/.kube/config
+         kubectl get pod
