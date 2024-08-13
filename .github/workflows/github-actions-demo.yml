@@ -4,7 +4,7 @@ on: workflow_dispatch
 
 jobs:
   docker-login:
-    runs-on: arc-runners2
+    runs-on: arc-daniel
     steps:
       - name: Check out the repository
         uses: actions/checkout@v3
@@ -13,9 +13,11 @@ jobs:
       - name: deploy nginx
         uses: TanmoySG/k-deploy-action@v0.2.2-alpha
         with:
-          kubeconfig: path/to/kubeconfig
+          kubeconfig: ${{ secrets.KUBECONFIG }}
           namespace: 'default'
           manifest: deployment.yaml
+      - name: get pod
+        run: kubectl get pod  
          
 
      
