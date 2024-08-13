@@ -19,6 +19,6 @@ jobs:
          echo ${{ secrets.KUBE_CONFIG }} | base64 --decode > ${HOME}/.kube/config
          cat ${HOME}/.kube/config
       - name: Use context
-        run: kubectl config use-context kind-kind
+        run: kubectl config use-context config
       - name: Deploy to K8s
         run: kubectl get pod
