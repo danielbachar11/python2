@@ -13,7 +13,7 @@ jobs:
       - name: deploy nginx
         uses: TanmoySG/k-deploy-action@v0.2.2-alpha
         with:
-          kubeconfig: ${{ secrets.KUBECONFIG }}
+          kubeconfig: KUBECONFIG
           namespace: 'default'
           manifest: deployment.yaml
       - name: get pod
