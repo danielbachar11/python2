@@ -5,8 +5,7 @@ on: push
 jobs:
   docker-login:
     runs-on: arc-daniel
-    container:
-      image: bitnami/kubectl
+    
     steps:
       - name: Check out the repository
         uses: actions/checkout@v3
@@ -15,6 +14,11 @@ jobs:
      
    
       - name: Set up Kubectl
-        run: sudo apt-get update
+        uses: azure/k8s-set-context@v1
+        with:
+          kubeconfig: ${{ secrets.KUBECONFIG }}
+      - name: Deploy
+        run: |
+          kubectl get pod
 
      
