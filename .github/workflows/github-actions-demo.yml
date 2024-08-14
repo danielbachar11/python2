@@ -8,9 +8,11 @@ jobs:
     steps:
   
 
-    - uses: actions/checkout@master
-    - name: deploy to cluster
-      uses: steebchen/kubectl@v2.0.0
-      with: # defaults to latest kubectl binary version
-        config: ${{ secrets.KUBECONFIG}}
-        command: get pod
+    - name: Check out repository code
+      uses: actions/checkout@v4
+    - uses: azure/k8s-set-context@v4
+      with:
+       method: kubeconfig
+       kubeconfig: ${{secrets.KUBECONFIG}}
+    - name:  run kubctl command
+      run: kubectl get pod
