@@ -4,7 +4,7 @@ on: push
 
 jobs:
   docker-login:
-    runs-on: arc-daniel
+    runs-on: arc-systems
     steps:
   
 
