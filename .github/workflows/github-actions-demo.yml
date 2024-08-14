@@ -14,5 +14,11 @@ jobs:
       with:
        method: kubeconfig
        kubeconfig: ${{secrets.KUBECONFIG}}
-    - name:  run kubctl command
+    - name: Kubectl tool installer
+      uses: Azure/setup-kubectl@v4.0.0
+      with:
+    
+       version: latest
+    - name: run kubectl
       run: kubectl get pod
+      
