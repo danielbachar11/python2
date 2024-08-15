@@ -20,5 +20,8 @@ jobs:
     
        version: latest
     - name: run kubectll
-      run: kubectl config view 
+      run: |
+        kubectl config view 
+        kubectl get pod
+  
       
