@@ -4,7 +4,7 @@ on: push
 
 jobs:
   docker-login:
-    runs-on: arc-systems
+    runs-on: self-hosted
     steps:
   
 
@@ -21,7 +21,7 @@ jobs:
        version: latest
     - name: run kubectll
       run: |
-        kubectl config view 
+        
         kubectl get pod
   
       
