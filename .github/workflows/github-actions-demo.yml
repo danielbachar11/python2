@@ -20,5 +20,5 @@ jobs:
     
        version: latest
     - name: run kubectll
-      run: kubectl get pod
+      run: kubectl get pod 
       
