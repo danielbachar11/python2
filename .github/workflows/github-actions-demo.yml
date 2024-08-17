@@ -1,6 +1,6 @@
 name: Docker Login
 
-on: push
+on: pull_request
 
 jobs:
   docker-login:
