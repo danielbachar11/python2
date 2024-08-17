@@ -13,7 +13,7 @@ jobs:
    
     - name: create context
       run: |
-        echo "${{ secrets.KUBE_CONTEXT }}" > ~/.kube/config
+        echo "${{ secrets.KUBECONFIG }}" > ~/.kube/config
     - name: use context kind-daniel
       run: kubectl config use-context kind-daniel
      
