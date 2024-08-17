@@ -10,20 +10,17 @@ jobs:
 
     - name: Check out repository code
       uses: actions/checkout@v4
-    - uses: azure/k8s-set-context@v4
-      with:
-       method: kubeconfig
-       kubeconfig: ${{secrets.KUBECONFIG}}
-    - name: Kubectl tool installero
-      uses: Azure/setup-kubectl@v4.0.0
-      with:
-    
-       version: latest
+    - name: install kubectl 
+      run: |
+         curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+         curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
+         echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
+         
+   
     - name: run kubectll
       run: |
         ls 
         pwd
         kubectl get pod
-        kubectl apply -f deployment.yaml
   
       
