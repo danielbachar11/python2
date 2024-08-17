@@ -15,6 +15,12 @@ jobs:
          curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
          curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
          echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
+    - name: create context
+      run: |
+       echo ${{ secrets.KUBECONFIG }} |  > /home/daniel/.kube
+    - name: use context kind-daniel
+      run: kubectl config use-context kind-daniel
+     
          
    
     - name: run kubectll
