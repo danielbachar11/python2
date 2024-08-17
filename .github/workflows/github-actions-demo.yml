@@ -10,19 +10,23 @@ jobs:
 
     - name: Check out repository code
       uses: actions/checkout@v4
+    - name: install kubectl 
+      run: |
+         curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+         curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
+         echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check  
    
-    - name: create context
+    - name: create context from secret
       run: |
         echo "${{ secrets.KUBECONFIG }}" > ~/.kube/config
-    - name: use context kind-daniel
+    - name: use context 
       run: kubectl config use-context kind-daniel
      
          
    
     - name: run kubectll
       run: |
-        ls 
-        pwd
         kubectl get pod
-  
-      
+        kubectl apply -f https://k8s.io/examples/controllers/nginx-deployment.yaml
+        kubectl get deploy
+        kubectl get pod
