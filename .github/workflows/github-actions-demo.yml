@@ -1,6 +1,6 @@
 name: Docker Login
 
-on: pull_request
+on: workflow_dispatch
 
 jobs:
   docker-login:
