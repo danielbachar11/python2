@@ -21,4 +21,5 @@ jobs:
           cd images/custom-nginx
           docker build -t danielbachar/nginx_website:latest_dev_image .
           docker push danielbachar/nginx_website:latest_dev_image
+          pwd
           
