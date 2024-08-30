@@ -1,0 +1,27 @@
+name: build and push to docker hub for prod
+
+on:
+ push:
+  branches: ["main"]
+  
+  paths:
+      - 'images/custom-nginx**'
+
+jobs:
+  docker_build_push_image:
+    runs-on: [self-hosted,Linux,X64]
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v3
+       
+      - name: docker login 
+        run: docker login -u ${{secrets.DOCKER_USER}} -p ${{secrets.DOCKER_PASSWORD}}
+      
+      - name: build image and push to docker hub 
+        run: |
+          
+          cd images/custom-nginx
+          docker build -t danielbachar/nginx_website:latest_prod_image .
+          
+          docker push danielbachar/nginx_website:latest_prod_image
+          

@@ -1,0 +1,26 @@
+name: deploy nginx  to dev namespace
+
+on:
+  push:
+   paths:
+      - 'kubernetes/local-cluster/dev**'
+    
+jobs:
+  checkout:
+    runs-on: [self-hosted,Linux,X64]
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v3 
+      - name: Create .kube directory
+        run: mkdir -p ~/.kube
+      
+      - name: Set up kubeconfig
+        env:
+          KUBECONFIG: ${{ secrets.KUBECONFIG }}  # Use a kubeconfig stored in GitHub Secrets
+        run: |
+          echo "$KUBECONFIG" > ~/.kube/config
+      - name: use context 
+        run: |
+         kubectl config use-context kind-daniel
+         kubectl apply -f kubernetes/local-cluster/dev
+

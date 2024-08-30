@@ -1,7 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: dev-deployment
+  namespace: dev
+  
   labels:
     app: nginx
 spec:
@@ -16,6 +18,8 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx
+        image: danielbachar/nginx_website:latest_dev_image
         ports:
         - containerPort: 80
+      imagePullSecrets:
+      - name: docker-secret
