@@ -3,8 +3,6 @@ on:
  
  push:
   
-  paths:
-     - 'images/custom-nginx**'
 jobs:
   docker_build_push:
     runs-on: [self-hosted,Linux,X64]
