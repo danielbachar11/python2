@@ -1,7 +1,10 @@
 name: build and push nginx website 
 on:
+
  
  push:
+  paths:
+      - 'kubernetes/local-cluster/dev**'
   
 jobs:
   docker_build_push:
