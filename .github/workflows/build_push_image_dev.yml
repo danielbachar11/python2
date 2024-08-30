@@ -12,7 +12,7 @@ jobs:
 
       - name: docker login 
         run: |
-         pwd
+         pwd 
          docker login -u ${{secrets.DOCKERHUB_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}   
          
        
