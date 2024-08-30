@@ -1,4 +1,4 @@
-name: build and push nginx website1
+name: install docker 
 on:
  
  push:
