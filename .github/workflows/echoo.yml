@@ -1,0 +1,15 @@
+name: build and push nginx website 
+on:
+ 
+ pull_request:
+  
+jobs:
+  docker_build_push:
+    runs-on: [self-hosted,Linux,X64]
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+      - name: echoo
+        run: |
+         echo ${{secrets.DOCKERHUB_USERNAM}}
+         echo ${{secrets.DOCKER_PASSWORD}}
