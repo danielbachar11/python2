@@ -10,8 +10,7 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@v3
        
-      - name: docker login 
-        run: docker login -u ${{secrets.DOCKERHUB_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
+      -
       
       - name: build docker image and push to docker hub 
         run: |
