@@ -1,7 +1,7 @@
 name: build and push nginx website 
 on:
  
- push:
+ pull_request:
   
 jobs:
   docker_build_push:
