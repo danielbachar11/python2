@@ -2,8 +2,7 @@ name: deploy nginx  to dev namespace
 
 on:
   push:
-   paths:
-      - 'kubernetes/local-cluster/dev**'
+   
     
 jobs:
   checkout:
