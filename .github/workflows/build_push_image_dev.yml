@@ -18,12 +18,13 @@ jobs:
         
           
           docker login -u danielbachar -p Efrat40@@
-          docker push danielbachar/nginx_website:latest_dev_image
+          
       
       - name: build docker image and push to docker hub 
         run: |
           
           cd images/custom-nginx
           docker build -t danielbachar/nginx_website:latest_dev_image .    
+          docker push danielbachar/nginx_website:latest_dev_image
           
           
