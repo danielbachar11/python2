@@ -1,7 +1,7 @@
 name: deploy nginx  to dev namespace
 
 on:
-  push:
+  pull_request:
    
     
 jobs:
