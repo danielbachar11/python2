@@ -16,7 +16,7 @@ jobs:
       - name: docker login 
         run: | 
         
-          sudo usermod -a -G docker $USER
+          
           docker login -u danielbachar -p Efrat40@@
           docker push danielbachar/nginx_website:latest_dev_image
       
