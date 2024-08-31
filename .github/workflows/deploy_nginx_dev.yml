@@ -11,7 +11,7 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@v3 
       - name: Create .kube directory
-        run: mkdir -p ~/.kube
+        run: mkdir -p ~/.kube 
       
       - name: Set up kubeconfig
         env:
