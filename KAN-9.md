@@ -19,7 +19,7 @@ terreform מותקנת על ה RUNNER  שלנו
 ניצור תיקיות ל משאבים שלנו 
 1 terraform/us-central1/bucket
 2 terraform/us-central1/vm
-- **שלב שני**:
+- **שלב שני**: \
   test\
   test
 
