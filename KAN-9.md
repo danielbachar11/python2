@@ -1,4 +1,4 @@
-# הרצת TERRAFORM  לפריסה של VM ו BUCKET ב GCP
+# הרצת TERRAFORM  לפריסה של VM ו BUCKET ב GCP באמצעות GITHUB ACTION 
 ## פירוט המשימה
 הרצת מכונה וירטואלית ו bucket ב gcp
 ## שלבים 
