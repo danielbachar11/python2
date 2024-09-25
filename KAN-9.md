@@ -20,7 +20,10 @@ terreform מותקנת על ה RUNNER  שלנו
 1 terraform/us-central1/bucket
 2 terraform/us-central1/vm
 - **שלב שני**:
+  test
+  test
+
 ניצור את הקבצים הבאים בתוך כל תיקייה שמכילה את הדברים  הבאים
-  1.1 קובץ הגדרות של המשאב ה מכונה וירטואלית שלנו ונקרא לקובץ TERRAFORM.TF  
-  1.2 קובץ הגדרות של המשאב ה BUCKET שלנו ונקרא לקובץ TERRAFORM.TF
+   1- קובץ הגדרות של המשאב ה מכונה וירטואלית שלנו ונקרא לקובץ TERRAFORM.TF
+   2- קובץ הגדרות של המשאב ה BUCKET שלנו ונקרא לקובץ TERRAFORM.TF
 
