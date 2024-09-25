@@ -1,0 +1,1 @@
+# הרצת TERRAFORM  לפריסה של VM ו BUCKET ב GCP
