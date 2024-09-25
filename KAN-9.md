@@ -16,8 +16,8 @@
 
 - **שלב ראשון**:
 ניצור תיקיות ל משאבים שלנו \
-1 mock_devops_tasks/terraform/us-central1/bucket \
-2 mock_devops_tasks/terraform/us-central1/vm \
+mock_devops_tasks/terraform/us-central1/bucket \
+mock_devops_tasks/terraform/us-central1/vm \
 
 - **שלב שני**: יצירת קבצי הגדרות של TERRAFORM 
 
