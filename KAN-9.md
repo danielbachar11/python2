@@ -5,11 +5,10 @@
 
 - **שלב ראשון**: יצירת תיקיות ל RESOURCE שלנו 
 - **שלב שני**: יצירת קבצי הגדרות של TERRAFORM 
-- **שלב שלישי**:\ יצירת קובץ PIPLINE 
-- **step 4**:
-- **step 5**:
+- **שלב שלישי**: יצירת קובץ PIPLINE 
 
-### דרישות מוקדמות
+
+## דרישות מקדימות
 terreform מותקנת על ה RUNNER  שלנו 
 
 
@@ -17,8 +16,8 @@ terreform מותקנת על ה RUNNER  שלנו
 
 - **שלב ראשון**:
 ניצור תיקיות ל משאבים שלנו 
-1 mock_devops_tasks/terraform/us-central1/bucket
-2 mock_devops_tasks/terraform/us-central1/vm
+1 mock_devops_tasks/terraform/us-central1/bucket\
+2 mock_devops_tasks/terraform/us-central1/vm \
 - **שלב שני**: יצירת קבצי הגדרות של TERRAFORM \
 
 ניצור את הקבצים הבאים בתוך כל תיקייה שמכילה את הדברים  הבאים \
@@ -72,7 +71,7 @@ jobs:
   שיוצרת לי קובץ עם ה CREDENTIALS שנדרשים\
 ואז הרצתי את TERRAFORM בצורה הבאה \
 terraform -chdir=.$pwd/$d ${{ inputs.tfcmd }}; \
-ה INPUT בקובץ רץ בצורה ידנית ויהיה לנו אופציות לבחור את הפקודה שנכניס ל INPUT בשעת ההרצה וזה יראה כך \
+ה INPUT בקובץ רץ בצורה ידנית ויהיה לנו אופציות לבחור את הפקודה שנכניס ל INPUT בשעת ההרצה וזה יראה כך 
 
 ![הרצת PIPLINE שלנו ](https://github.com/danielbachar11/phtoes/blob/main/kan-9/input.JPG)        
 
